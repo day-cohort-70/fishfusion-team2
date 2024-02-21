@@ -3,7 +3,7 @@ const { chefMaxPrice, mongerInventory } = require("./fishMonger.js")
 
 
 // The chefMenu function returns HTML
-funct chefMenu = (mongerArray, chefMaxPrice) =>{
+function chefMenu = (mongerArray, chefMaxPrice) =>{
 
     for (const menuItem of mongerArray) {
         menuHTML += `<section> ${typeOfFish} Soup </section>`
@@ -13,7 +13,7 @@ funct chefMenu = (mongerArray, chefMaxPrice) =>{
 
 // what should this return, perhaps chefInventory?
 
-funct chefMenu(approvedChefFish) {
+function chefMenu(approvedChefFish) {
     let menuHTML = '';
 
     for (const fish of chefInventory) {

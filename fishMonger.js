@@ -9,13 +9,13 @@ Fish Monger Purchasing Constraints
 3. determine what fish meet those requirement 
 */
 
-// let todaysCatch = boatInventory()
+const todaysCatch = boatInventory()
 
-function mongerInventory() {
+function mongerInventory(a) {
 
-mongerPurchasedFish = [] // todaysCatch
+const mongerPurchasedFish = [] // todaysCatch
 
-    for (const fish of boatInventory) {
+    for (const fish of todaysCatch) {
         if (fish.amount >= 10 && fish.price <= 7.50) {
             mongerPurchasedFish.push(fish);
         }
@@ -23,20 +23,22 @@ mongerPurchasedFish = [] // todaysCatch
     return mongerPurchasedFish  
 }
 
+let filteredInventory = mongerInventory(todaysCatch)
 
-const chefMaxPrice = (mongerPurchasedFish, chefPrice) => {
+
+const chefMaxPrice = (filteredInventory, chefPrice) => {
 
     let approvedChefFish = []
     
-        for (const fish of mongerPurchasedFish) {
-            if (chefPrice <= mongerPurchasedFish.price)
-                approvedChefFish.push(fish.amount) * .5
+        for (const fish of filteredInventory) { 
+            let halfAmount = fish.amount /2
+            if (chefPrice < fish.price)
+                approvedChefFish.push(halfAmount);
         }
-    
         return approvedChefFish
     }
 
-    
+const todaysFish = chefMaxPrice(filteredInventory, 2)
 /*
 
 // This function is going to iterate through the array and return objects
@@ -49,6 +51,10 @@ Chef Purchasing Constraints
 
 3. Return final array of all fish that is lower than chefs price
 3a. The parameters should be mongerArray && chefPrice
+
+let halfAmount = Math.round(fish.amount *  0.5);
+            / Push the fish with the adjusted amount
+            approvedChefFish.push({ ...fish, amount: halfAmount });
 
 */
 
