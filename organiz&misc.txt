@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+User
+how to use a HTML class in JavScript
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Restaurant</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <main id="container">
+        <h1>The Menu</h1>
+    </main>
+
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish_Fusion</title>
+</head>
+<body>
+
+<h1>Menu</h1>
+<article class="menu">
+    <script>
+        const chefMenu = (mongerArray, chefMaxPrice) => {
+            let menuHTML = '';
+
+            for (const typeOfFish of mongerArray) {
+                menuHTML += `<h2>${typeOfFish}</h2>`;
+                menuHTML += `<section class="menu__item">${typeOfFish} Soup</section>`;
+                menuHTML += `<section class="menu__item">${typeOfFish} Sandwich</section>`;
+                menuHTML += `<section class="menu__item">Grilled ${typeOfFish}</section>`;
+            }
+
+            // Display the generated menu HTML
+            document.querySelector('.menu').innerHTML = menuHTML;
+        };
+
+        // Example usage
+        const mongerArray = ['Tuna', 'Salmon', 'Cod'];
+        const chefMaxPrice = 20;
+
+        chefMenu(mongerArray, chefMaxPrice);
+    </script>
+</article>
+
+</body>
+</html>

@@ -10,14 +10,13 @@ const  typesOfFish = [
     { id: 8, species: "Puffer", weight: 2, price: 9.84, amount: 52 }
 ]
 
- function boatInventor(){
+ function boatInventory(){
     return typesOfFish;
 }
 
-/* 
-1. need function called boatInventory
-2. This function is returning all fish objects 
-*/
 
-module.exports ={ boatInventory }
+//are we exporting the function with the return value of the array of fish or the array of fish itself?
+module.exports ={ boatInventory, typesOfFish }
+
+
 
