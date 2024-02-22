@@ -1,22 +1,15 @@
-const { chefMaxPrice, mongerInventory } = require("./fishMonger.js")
+const { mongerInventory } = require("./fishMonger.js")
+// mongerInventory
 
 
 
-// The chefMenu function returns HTML
-function chefMenu = (mongerArray, chefMaxPrice) =>{
 
-    for (const menuItem of mongerArray) {
-        menuHTML += `<section> ${typeOfFish} Soup </section>`
-    }
-    // call 2nd function in fishmonger
-}
-
-// what should this return, perhaps chefInventory?
-
-function chefMenu(approvedChefFish) {
+function fishMenu(price) {//price
     let menuHTML = '';
-
+    chefInventory = mongerInventory(price)
     for (const fish of chefInventory) {
+        
+
         menuHTML += `<h2>${fish.type}</h2>`;
         menuHTML += `<section class="menu__item">${fish.type} Soup</section>`;
         menuHTML += `<section class="menu__item">${fish.type} Sandwich</section>`;
@@ -25,20 +18,24 @@ function chefMenu(approvedChefFish) {
     return menuHTML;
 }
 
+module.exports = { fishMenu }
 
 
+
+/* const fisMenu = (price) =>{
+//    let menuHTML = '';
+//add logic
+    for (const fish of chefInventory) {
+        menuHTML += `<h2>${fish.type}</h2>`;
+        menuHTML += `<section class="menu__item">${fish.type} Soup</section>`;
+        menuHTML += `<section class="menu__item">${fish.type} Sandwich</section>`;
+        menuHTML += `<section class="menu__item">Grilled ${fish.type}</section>`;
+    }
+    return menuHTML;
+}*/
 
 
 /*
-for of loop that goes through the chefInventory array and for each different type of 
-    fish create the 3 meals
-
-Chef creating 3 meals 
-${typeOfFish} Soup
-${typeOfFish} Sandwich
-Grilled ${typeOfFish} 
-
-const displayMenuItem = document.getElementsByClassName("menu__item")
     
 displayMenuItem.forEach(chefMenu => {});
 
@@ -49,19 +46,3 @@ displayMenuItem.forEach(chefMenu => {});
 
 
 
-/*
-const menuElement = restaurant.createElement('div');
-menuElement.classList.add('menu');
-
-restaurant.body.appendChild()
-*/
-
-/*
-const todaysFish = mongerInventory()
-const chefPrice
-
-todays = fishMenu(todaysFish, chefPrice)*/
-
-//document.getElementById('totalInput').innerHTML = total
-
-/*

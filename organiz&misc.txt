@@ -1,78 +1,20 @@
+// this function takes the fish from the boat and filters it with the price the
+monger is willing to pay. It then pushes the "approved" fish to the MPF[] array
+and returns the MPF[]
+const filteredInventory = mongerInventory(today'sCatch)
 
+// this function applies `chefMaxPrice = chefMaxPrice(filteredInventory,
+dailyPriceLimit)` to calculate the price of each approved fish
+const chefMaxPrice = (filteredInventory, dailyPriceLimit) => {
+  let approvedChefFish = [] // today'sCatch with updated fiish prices
 
-
-
-
-
-
-
-
-
-
-
-
-User
-how to use a HTML class in JavScript
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish Restaurant</title>
-    <link rel="stylesheet" href="./styles/main.css">
-</head>
-
-<body>
-    <main id="container">
-        <h1>The Menu</h1>
-    </main>
-
-    <script type="module" src="./scripts/main.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish_Fusion</title>
-</head>
-<body>
-
-<h1>Menu</h1>
-<article class="menu">
-    <script>
-        const chefMenu = (mongerArray, chefMaxPrice) => {
-            let menuHTML = '';
-
-            for (const typeOfFish of mongerArray) {
-                menuHTML += `<h2>${typeOfFish}</h2>`;
-                menuHTML += `<section class="menu__item">${typeOfFish} Soup</section>`;
-                menuHTML += `<section class="menu__item">${typeOfFish} Sandwich</section>`;
-                menuHTML += `<section class="menu__item">Grilled ${typeOfFish}</section>`;
-            }
-
-            // Display the generated menu HTML
-            document.querySelector('.menu').innerHTML = menuHTML;
-        };
-
-        // Example usage
-        const mongerArray = ['Tuna', 'Salmon', 'Cod'];
-        const chefMaxPrice = 20;
-
-        chefMenu(mongerArray, chefMaxPrice);
-    </script>
-</article>
-
-</body>
-</html>
+  for (const fish of filteredInventory) {
+    let halfAmount = fish.amount /2;
+    if (dailyPriceLimit < fish.price) {
+      halfAmount = fish.amount * 1.5; // apply a discount factor for the daily
+price limit
+    }
+    approvedChefFish.push({ ...fish, amount: halfAmount });
+  }
+  return approvedChefFish
+}
